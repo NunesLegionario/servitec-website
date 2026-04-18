@@ -17,9 +17,10 @@ O banco de dados vai alimentar o conteúdo da página, com preços podendo ser a
 ## Techstack 
 
 A techstack utilizada vai ser a LAMP, que significa:
-L A M P
-├─┸─┸─┸─
-├─Linux (VPS rodando Debian 13 e uma instância do Podman)
-├─Apache Web Server.
-├─ MySQL
-└─ PHP
+
+L A M P\
+│ │ │ │\
+│ │ │ └─ PHP\
+│ │ └─── MySQL\
+│ └───── Apache Web Server\
+└─────── Linux (VPS rodando Debian 13 e uma instância do Podman)\
