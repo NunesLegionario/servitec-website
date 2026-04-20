@@ -5,23 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-    
+    <link rel="stylesheet" href="css/index.css">
 
+    <!-- Template via Webcomponent-->
+
+    <script type="module" src="js/components/header.js" defer></script>
+    <script type="module" src="js/components/footer.js" defer></script>
 
 </head>
 
 <body>
-    <header>
-        <img src="img/549675846_18094174126680521_6691683239864828988_n.jpg" alt="">
-        <div id="container-cart-icon">
-            <img id="header-cart-icon" src="img/cart-shopping-svgrepo-com.svg" alt="">
-            <span id="header-red-counter">
-                <p id="header-counter">1</p>
-            </span>
 
-        </div>
-    </header>
+    <component-header></component-header>
 
     <nav>
         <a class="nav-link" href="">Painéis</a>
@@ -32,7 +27,7 @@
     </nav>
 
     <div id="background-img-container">
-        <img id="background-img" src="img/background.webp" alt="">
+        <img id="background-img" src="assets/images/background.webp" alt="">
         <div id="background-img-overlay">
             <p id="text-overlay">A Maior Empresa de Instalação Fotovoltaica Da Região dos Lagos</p>
         </div>
@@ -70,7 +65,7 @@
         <div id="lista-kits-main">
 
             <div class="lista-kits-cards">
-                <span><img class="imagem-produto" src="img/images.jpg" alt=""></span>
+                <span><img class="imagem-produto" src="assets/images/images.jpg" alt=""></span>
                 <div class="coluna-desc ">
                 <div class="produto-titulo">Placa Solar Teste</div> 
                 <div class="produto-desc">O Painel Solar de 710W da marca Teste 
@@ -93,7 +88,7 @@
             </div>
         
         <div class="lista-kits-cards">
-                <span><img class="imagem-produto" src="img/images.jpg" alt=""></span>
+                <span><img class="imagem-produto" src="assets/images/images.jpg" alt=""></span>
                 <div class="coluna-desc ">
                 <div class="produto-titulo">Placa Solar Teste</div> 
                 <div class="produto-desc">O Painel Solar de 710W da marca Teste 
@@ -116,7 +111,7 @@
             </div>
 
         <div class="lista-kits-cards">
-                <span><img class="imagem-produto" src="img/images.jpg" alt=""></span>
+                <span><img class="imagem-produto" src="assets/images/images.jpg" alt=""></span>
                 <div class="coluna-desc ">
                 <div class="produto-titulo">Placa Solar Teste</div> 
                 <div class="produto-desc">O Painel Solar de 710W da marca Teste 
@@ -145,18 +140,11 @@
 
     </div>
 
-    <footer>
-
-        <img id="footer-logo" src="img/549675846_18094174126680521_6691683239864828988_n.jpg" alt="">
-
-        <div>
-
-        </div>
-
-    </footer>
-
+    <component-footer></component-footer>
 
 </body>
+
+
 <script>
 
     counter = 0
@@ -164,14 +152,19 @@
 
     function carrinhoTeste() {
         if (counter >= 9 || counter == "+9") {
-            counter = "+9"
+            counter = "+9";
         } else {
             counter += 1
         }
         document.getElementById('header-counter').textContent = counter
 
-
     }
+
+
+        
+
+
+
 </script>
 
 </html> 

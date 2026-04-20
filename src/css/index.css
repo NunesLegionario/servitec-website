@@ -1,54 +1,18 @@
+:root{
+    --primary-color: #1C3657;
+    --secondary-color: #FF9121;
+}
+
 body {
     margin: 0px;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 0px;
-    margin: 0px;
-    height: 70px;
-    width: 100%;
-    background-color: #1C3657;
-}
-
-img {
-    height: 70px;
-    width: 70px;
-
-}
-
-#header-cart-icon {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-}
-
-#header-red-counter {
-    position: relative;
-    display: inline-block;
-    background-color: red;
-    height: 15px;
-    width: 15px;
-    min-width: 15px;
-    color: white;
-    top: -15px;
-    right: 15px;
-    border: 1px red solid;
-    border-radius: 50%;
-    text-align: center;
-}
-
-#header-counter {
-    margin: 0px;
-}
 
 nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #FF9121;
+    background-color: var(--secondary-color);
     height: 30px;
     width: 100%;
 }
@@ -95,23 +59,6 @@ nav {
     color: white;
 
 }
-
-footer {
-
-    display: flex;
-    align-items: center;
-    background-color: #1C3657;
-    height: 100px;
-    width: 100%;
-}
-
-#footer-logo {
-    margin-left: 20px;
-    width: 90px;
-    height: 90px;
-}
-
-
 
 #tab-opcoes-compra{
     margin-top: 10px;
