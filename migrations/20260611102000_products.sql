@@ -1,11 +1,11 @@
 CREATE TABLE products (
     id INTEGER PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
+    nome TEXT NOT NULL,
     descricao TEXT,
     imagem_principal TEXT,
     imagens TEXT[],
-    price NUMERIC(10, 2) NOT NULL,
-    stock INTEGER NOT NULL DEFAULT 0 CHECK (stock >= 0),
+    price INTEGER NOT NULL,
+    stock INTEGER NOT NULL,
     available BOOLEAN NOT NULL DEFAULT false
 );
 
