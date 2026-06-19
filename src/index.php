@@ -1,6 +1,8 @@
 <?php
 
 require 'db.php';
+session_start();
+session_destroy();
 
 $productQuery = $pdo->query("SELECT * FROM public.products");
 
@@ -17,6 +19,7 @@ $productQueryResult = $productQuery->fetchAll();
   <title>Document</title>
 
   <style>
+
     /*Global */
     :root {
       --primary-color: #1C3657;
@@ -29,11 +32,6 @@ $productQueryResult = $productQuery->fetchAll();
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      overflow-x: hidden;
-    }
-
-    html {
-      overflow-x: hidden;
     }
 
     *, *::before, *::after {
@@ -47,7 +45,7 @@ $productQueryResult = $productQuery->fetchAll();
     /* Header */
 
     header {
-      z-index: 3;
+      z-index: 4;
       background-color: var(--primary-color);
       height: 70px;
       width: 100%;
@@ -93,6 +91,22 @@ $productQueryResult = $productQuery->fetchAll();
       width: auto;
       position: relative;
     }
+
+       #cart-dropdownlist{
+        display: none;
+        position: absolute;
+        height: 500px;
+        width: 300px;
+        top: 100%;
+        transform: translateX(-50%);
+        z-index: 4;
+      }
+
+      #cart-wrapper-header:hover #cart-dropdownlist{
+        z-index: 4;
+        background-color: black;
+        display: block;
+      }
 
     #icon-carrinho-header {
       margin-left: auto;
@@ -476,6 +490,7 @@ $productQueryResult = $productQuery->fetchAll();
         height: 32px;
       }
 
+
       #user-wrapper-header {
         margin-left: 8px;
       }
@@ -488,7 +503,6 @@ $productQueryResult = $productQuery->fetchAll();
       nav {
         position: static;
         height: auto;
-        overflow-x: auto;
       }
 
       nav ul {
@@ -662,10 +676,12 @@ $productQueryResult = $productQuery->fetchAll();
 
       <span id="red-counter-header">0</span>
 
+      <div id="cart-dropdownlist"></div>
+
     </div>
 
     <div id="user-wrapper-header">
-      <a href="login.html">
+      <a href="login.php">
         <img src="assets/icons/user-icon.svg" alt="" id="">
       </a>
     </div>
@@ -757,32 +773,35 @@ $productQueryResult = $productQuery->fetchAll();
 
       </div>
 -->
-      <?php
+<?php
+foreach ($productQueryResult as $productInfo) {
+  // Back to your original addslashes
+  $safeName = addslashes($productInfo['nome']); 
+    
+  echo "<div class=\"lista-kits-cards\">
+    <span><img class=\"imagem-produto\" src=\"" . $productInfo['imagem_principal'] . " \" alt=\"\"></span>
+    <div class=\"coluna-desc \">
+      <div class=\"produto-titulo\"> " . $productInfo['nome'] . "</div>
+      <div class=\"produto-desc\">" . $productInfo['descricao'] . "</div>
+      <div class=\"produto-promo\"></div>
+    </div>
+    <span>
+      <div class=\"produto-info\">
+        <p>" . number_format($productInfo['price'] / 100, 2, ',', '.') . "</p>
 
+        <form action=\"checkout.php\" method=\"POST\" style=\"margin: 0;\">
+            <input type=\"hidden\" name=\"product_id\" value=\"" . $productInfo['id'] . "\">
+            <input type=\"hidden\" name=\"product_price\" value=\"" . $productInfo['price'] . "\">
+            <input type=\"hidden\" name=\"product_name\" value=\"" . $safeName . "\">
+            
+            <button type=\"submit\" class=\"carrinho-teste\">Comprar</button>
+        </form>
 
-      foreach ($productQueryResult as $productInfo) {
-        echo "<div class=\"lista-kits-cards\">
-        <span><img class=\"imagem-produto\" src=\"" . $productInfo['imagem_principal'] . " \" alt=\"\"></span>
-        <div class=\"coluna-desc \">
-          <div class=\"produto-titulo\"> " . $productInfo['nome'] . "</div>
-          <div class=\"produto-desc\">" . $productInfo['descricao'] .
-          "</div>
-          <div class=\"produto-promo\"></div>
-        </div>
-        <span>
-          <div class=\"produto-info\">
-            <p>" . number_format($productInfo['price'] / 100) . "</p>
-
-            <button class=\"carrinho-teste\" onclick=\"carrinhoTeste(" . $productInfo['descricao'] . "," . $productInfo['price'] . ")\">Comprar</button>
-
-
-          </div>
-        </span>
-
-      </div>";
-      }
-
-      ?>
+      </div>
+    </span>
+  </div>";
+}
+?>
 
     </div>
 
@@ -796,12 +815,18 @@ $productQueryResult = $productQuery->fetchAll();
 
 
   <footer>
-    <img id="footer-logo" src="src/assets/images/logo-servitec.jpg" alt="">
+    <img id="footer-logo" src="assets/images/logo-servitec.jpg" alt="">
 
     <div>
 
     </div>
   </footer>
+
+  <script>
+    function carrinhoTeste ($id, $price, $name){
+      console.log($id)
+    }
+  </script>
 </body>
 
 </html>
