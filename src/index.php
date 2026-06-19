@@ -776,8 +776,8 @@ $productQueryResult = $productQuery->fetchAll();
 <?php
 foreach ($productQueryResult as $productInfo) {
   // Back to your original addslashes
-  $safeName = addslashes($productInfo['nome']); 
-    
+  $safeName = addslashes($productInfo['nome']);
+
   echo "<div class=\"lista-kits-cards\">
     <span><img class=\"imagem-produto\" src=\"" . $productInfo['imagem_principal'] . " \" alt=\"\"></span>
     <div class=\"coluna-desc \">
@@ -793,7 +793,7 @@ foreach ($productQueryResult as $productInfo) {
             <input type=\"hidden\" name=\"product_id\" value=\"" . $productInfo['id'] . "\">
             <input type=\"hidden\" name=\"product_price\" value=\"" . $productInfo['price'] . "\">
             <input type=\"hidden\" name=\"product_name\" value=\"" . $safeName . "\">
-            
+
             <button type=\"submit\" class=\"carrinho-teste\">Comprar</button>
         </form>
 

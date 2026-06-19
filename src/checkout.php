@@ -1,6 +1,6 @@
 <?php
 
-require_once 'db.php';
+require 'db.php';
     session_start();
 
 /* product_id, product_price, product_name */
@@ -15,17 +15,20 @@ if (!isset($_SESSION['user'])){
     $_SESSION['pedido']['product_price'] = $_POST['product_price'];
     $_SESSION['pedido']['product_name'] = $_POST['product_name'];
     header('location:login.php');
+    exit();
 }
 
 
+$user_id = $_SESSION['user_id'];
 
 
-// Tipo assim, isso daqui obviamente é basicamente você abrir uma porta para um SQL Injection, 
-// mas pelo menos do meu lado eu não estou conseguindo usar o prepare & execute do PDO.
+$product_id = $_SESSION['pedido']['product_id'];
 
-$userQuery = $pdo->query("SELECT * FROM public.usuarios WHERE nome = 'eee'");
 
-$userQueryResult = $userQuery->fetch();
+$sql_pedido = "INSERT INTO public.orders (user_id, product_id, status) VALUES ($user_id, $product_id, 'pendente')";
+
+$pdo->exec($sql_pedido);
+header('location:clientePage.php')
 
 
 ?>

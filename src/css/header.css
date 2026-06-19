@@ -1,0 +1,232 @@
+:root {
+      --primary-color: #1C3657;
+      --primary-color-lighter: #375479;
+      --secondary-color: #FF9121;
+      --secondary-color-select: rgb(208, 120, 32)1;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    /* Header */
+
+    header {
+      z-index: 4;
+      background-color: var(--primary-color);
+      height: 70px;
+      width: 100%;
+      padding: 0px 35px 0px 35px;
+      display: flex;
+      position: sticky;
+      top: 0;
+      flex-direction: row;
+      box-sizing: border-box;
+      align-items: center;
+    }
+
+    #nav-icon-header {
+      display: none;
+      height: 30px;
+      width: auto;
+    }
+
+    #logo-header {
+      height: 100%;
+      width: auto;
+    }
+
+    #texto-especialista-header {
+      color: white;
+      margin: 0px 20px 0px 20px;
+      padding: 0px 0px 0px 10px;
+      font-size: 14px;
+      box-shadow: rgb(179, 179, 179) -1px 0px 0px 0px;
+    }
+
+    #whatsapp-link-header {
+      color: white;
+      text-decoration: none;
+    }
+
+
+    #cart-wrapper-header {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: auto;
+      position: relative;
+    }
+
+       #cart-dropdownlist{
+        display: none;
+        position: absolute;
+        height: 500px;
+        width: 300px;
+        top: 100%;
+        transform: translateX(-50%);
+        z-index: 4;
+      }
+
+      #cart-wrapper-header:hover #cart-dropdownlist{
+        z-index: 4;
+        background-color: black;
+        display: block;
+      }
+
+    #icon-carrinho-header {
+      margin-left: auto;
+      height: 40px;
+      width: auto;
+    }
+
+    #red-counter-header {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: red;
+      border-radius: 100%;
+      top: 4px;
+      left: 30px;
+      height: 15px;
+      width: 15px;
+
+    }
+
+    #search-wrapper-header {
+      display: inline-flex;
+      height: 100%;
+      position: relative;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .hyperlink-header {
+      margin-left: auto;
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+    }
+
+    #search-wrapper-header form {
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    #search-wrapper-header form input {
+      box-sizing: border-box;
+      height: 40px;
+      width: 350px;
+      border-radius: 5px;
+      border: none;
+      padding: 0px 10px;
+      min-width: 0;
+    }
+
+    #search-wrapper-header form button {
+      position: absolute;
+      left: 100%;
+      transform: translateX(-100%);
+    }
+
+    #search-wrapper-header form button img {
+      height: 20px;
+    }
+
+    .btn-search-submit {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    #user-wrapper-header {
+      margin-left: 20px;
+      display: flex;
+    }
+
+    #user-wrapper-header a img {
+      height: 40px;
+      display: flex;
+    }
+
+    /* Nav bar */
+
+    nav {
+      justify-content: center;
+      position: sticky;
+      z-index: 3;
+      height: 30px;
+      width: 100%;
+      background-color: var(--secondary-color);
+      display: flex;
+      top: 70px;
+      direction: row;
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+    }
+
+    nav ul {
+      margin: 0px;
+      display: inline-flex;
+      padding: 0px;
+      height: 30px;
+    }
+
+    nav li {
+      padding: 0 10px 0 10px;
+      height: 30px;
+      align-items: center;
+      display: inline-flex;
+      white-space: nowrap;
+    }
+
+
+
+    .wrapper-dropdown-menu {
+      min-width: 1000px;
+      background-color: var(--primary-color-lighter);
+      transform: translateX(-50%);
+      left: 50%;
+      top: 100%;
+
+      display: none;
+      position: absolute;
+      border-radius: 0px 0px 20px 20px;
+
+
+    }
+
+    .wrapper-dropdown-menu a {
+      color: white;
+      text-decoration: none;
+      margin: 10px;
+      display: block;
+    }
+
+
+    nav li:hover {
+      background-color: #e18120;
+    }
+
+    nav li:hover .wrapper-dropdown-menu {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: auto;
+    }
+
+

@@ -19,6 +19,7 @@ $userQueryResult = $userQuery->fetch();
 
 if($name == $userQueryResult['nome'] && $pwd == $userQueryResult['senha']){
     session_start();
+    $_SESSION['user_id'] = $userQueryResult['id'];
     $_SESSION['user'] = $name;
     $_SESSION['accessLevel'] = $userQueryResult['accesslevel'];
     switch ($_SESSION['accessLevel']) {
