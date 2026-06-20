@@ -8,6 +8,48 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/header.css">
+
+    <style>
+
+      body {
+        background-image: url('assets/images/background2.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      #login-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 75vh;
+      }
+
+      #form-login {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 300px;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: var(--primary-color);
+      }
+
+      #form-login input {
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+        padding: 0px 10px;
+      }
+
+      #form-login input[type="submit"] {
+        background-color: var(--secondary-color);
+        color: white;
+        cursor: pointer;
+      }
+
+    </style>
 </head>
 <body>
     <header>
@@ -98,10 +140,11 @@ session_start();
     </ul>
 
   </nav>
-  
-<form action="auth.php" method="post">
-    <input type="text" id="userName" name="userName">
-    <input type="password" id="password" name="password">
+
+<main id="login-main">
+<form action="auth.php" method="post" id="form-login">
+    <input type="text" id="userName" name="userName" placeholder="Usuário">
+    <input type="password" id="password" name="password" placeholder="Senha">
 
     <?php if(isset($_SESSION['pedido'])){
        echo("<input type=\"hidden\" name=\"formCheckout\" value=\"true\">");
@@ -111,7 +154,16 @@ session_start();
 
 
 </form>
-    
+</main>
+
+  <footer>
+    <img id="footer-logo" src="assets/images/logo-servitec.jpg" alt="">
+
+    <div>
+
+    </div>
+  </footer>
+
 </body>
 </html>
 

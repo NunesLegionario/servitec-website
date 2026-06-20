@@ -26,6 +26,7 @@ $pedidos = $resultado_pedidos->fetchAll();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="css/header.css">
 </head>
 
 <body>
@@ -129,6 +130,14 @@ $pedidos = $resultado_pedidos->fetchAll();
     </div>";
   }
   ?>
+
+  <footer>
+    <img id="footer-logo" src="assets/images/logo-servitec.jpg" alt="">
+
+    <div>
+
+    </div>
+  </footer>
 
 </body>
 

@@ -229,4 +229,20 @@
       gap: auto;
     }
 
+    /* Footer */
+    footer {
+
+      display: flex;
+      align-items: center;
+      background-color: #1C3657;
+      height: 100px;
+      width: 100%;
+    }
+
+    #footer-logo {
+      margin-left: 20px;
+      width: 90px;
+      height: 90px;
+    }
+
 
